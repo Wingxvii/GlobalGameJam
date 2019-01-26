@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProgressScene : MonoBehaviour
 {
-	PresentScene presentScene;
+	public PresentScene presentScene;
 	//public int nextScene;
 
 	//Use this to determine which scene is to be played next
