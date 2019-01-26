@@ -8,12 +8,15 @@ public class Movement : MonoBehaviour
 
 	private GameObject player;
 	private Rigidbody2D playerRigid;
+	private StateTracker state;
+
 
     // Start is called before the first frame update
     void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerRigid = player.GetComponent<Rigidbody2D>();
+		state = player.GetComponent<StateTracker>();
     }
 
     // Update is called once per frame
@@ -25,38 +28,44 @@ public class Movement : MonoBehaviour
 	// Movement update
 	private void FixedUpdate()
 	{
-
-		//double inputs
-		if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A)) {
-			playerRigid.AddForce(new Vector2(-moveSpeed * 500.0f, moveSpeed * 500.0f));
-		}
-		else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D)){
-			playerRigid.AddForce(new Vector2(moveSpeed * 500.0f, moveSpeed * 500.0f));
-		}
-		else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A)){
-			playerRigid.AddForce(new Vector2(-moveSpeed * 500.0f, -moveSpeed * 500.0f));
-		}
-		else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D)){
-			playerRigid.AddForce(new Vector2(moveSpeed * 500.0f, -moveSpeed * 500.0f));
-		}
-		else
+		if (!state.atHome)
 		{
-			//basic inputs
-			if (Input.GetKey(KeyCode.W))
+			//double inputs
+			if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
 			{
-				playerRigid.AddForce(new Vector2(0, moveSpeed * 1000.0f));
+				playerRigid.AddForce(new Vector2(-moveSpeed * 707.0f, moveSpeed * 707.0f));
 			}
-			if (Input.GetKey(KeyCode.A))
+			else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
 			{
-				playerRigid.AddForce(new Vector2(-moveSpeed * 1000.0f, 0));
+				playerRigid.AddForce(new Vector2(moveSpeed * 707.0f, moveSpeed * 707.0f));
 			}
-			if (Input.GetKey(KeyCode.S))
+			else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
 			{
-				playerRigid.AddForce(new Vector2(0, -moveSpeed * 1000.0f));
+				playerRigid.AddForce(new Vector2(-moveSpeed * 707.0f, -moveSpeed * 707.0f));
 			}
-			if (Input.GetKey(KeyCode.D))
+			else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
 			{
-				playerRigid.AddForce(new Vector2(moveSpeed * 1000.0f, 0));
+				playerRigid.AddForce(new Vector2(moveSpeed * 707.0f, -moveSpeed * 707.0f));
+			}
+			else
+			{
+				//basic inputs
+				if (Input.GetKey(KeyCode.W))
+				{
+					playerRigid.AddForce(new Vector2(0, moveSpeed * 1000.0f));
+				}
+				if (Input.GetKey(KeyCode.A))
+				{
+					playerRigid.AddForce(new Vector2(-moveSpeed * 1000.0f, 0));
+				}
+				if (Input.GetKey(KeyCode.S))
+				{
+					playerRigid.AddForce(new Vector2(0, -moveSpeed * 1000.0f));
+				}
+				if (Input.GetKey(KeyCode.D))
+				{
+					playerRigid.AddForce(new Vector2(moveSpeed * 1000.0f, 0));
+				}
 			}
 		}
 	}
