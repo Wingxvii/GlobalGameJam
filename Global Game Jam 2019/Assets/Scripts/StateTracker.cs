@@ -6,14 +6,17 @@ public class StateTracker : MonoBehaviour
 {
 
 	private GameObject player;
-	private bool inHouseRange = false;
+	private GameObject home;
+	public bool inHouseRange = false;
 	public bool atHome = false;
+	public bool isDead = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
+		home = GameObject.FindGameObjectWithTag("House");
 
     }
 
@@ -24,15 +27,18 @@ public class StateTracker : MonoBehaviour
 			Debug.Log("Pressed\n");
 			//enters the house/leaves the house
 			if (atHome) {
-				//get in house animation goes here ... @anim
+				//leave house animation goes here ... @anim
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
+				player.GetComponent<Transform>().position = home.GetComponent<Transform>().position;
+				player.GetComponent<BoxCollider2D>().enabled = true;
 				atHome = false;
 			}
 			else if(inHouseRange){
-				//leave house animation goes here ... @anim
+				//get in house animation goes here ... @anims
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
+				player.GetComponent<BoxCollider2D>().enabled = false;
 				atHome = true;
 			}
 		}
@@ -43,6 +49,16 @@ public class StateTracker : MonoBehaviour
 		if (collision.gameObject.tag == "House")
 		{
 			inHouseRange = true;
+		}
+
+	}
+
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Monster" && !atHome)
+		{
+			Debug.Log("Dead");
+			isDead = true;
 		}
 	}
 	public void OnTriggerExit2D(Collider2D collision)
