@@ -42,7 +42,6 @@ public class Sound : MonoBehaviour
 	{
 		if (!source.isPlaying)
 		{
-			Debug.Log("STOP");
 			isSoundPlaying = false;
 		}
 
