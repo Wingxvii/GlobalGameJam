@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class StateTracker : MonoBehaviour
@@ -12,7 +13,9 @@ public class StateTracker : MonoBehaviour
 	public bool atHome = false;
 	public bool isDead = false;
 
-	public List<AudioClip> doorClips;
+	public List<AudioClip> stateClips;
+
+	public Button settleButton;
 
 
     // Start is called before the first frame update
@@ -20,7 +23,6 @@ public class StateTracker : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("Player");
 		home = GameObject.FindGameObjectWithTag("House");
-
     }
 
     // Update is called once per frame
@@ -36,8 +38,11 @@ public class StateTracker : MonoBehaviour
 				GameObject.FindGameObjectWithTag("BKGMusic").GetComponent<AudioLowPassFilter>().enabled = false;
 				
 				//Play leave house sound
-				source.clip = doorClips[1];
+				source.clip = stateClips[1];
 				source.Play();
+
+				//Disable button to settle down the house
+				settleButton.enabled = false;
 
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
@@ -53,8 +58,11 @@ public class StateTracker : MonoBehaviour
 				GameObject.FindGameObjectWithTag("BKGMusic").GetComponent<AudioLowPassFilter>().enabled = true;
 				
 				//Play enter house sound
-				source.clip = doorClips[0];
+				source.clip = stateClips[0];
 				source.Play();
+
+				//Enable the button to settle down the house
+				settleButton.enabled = true;
 
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
@@ -80,7 +88,7 @@ public class StateTracker : MonoBehaviour
 		{
 			Debug.Log("Dead");
 			//Play leave house sound
-			source.clip = doorClips[2];
+			source.clip = stateClips[2];
 			source.Play();
 			isDead = true;
 		}

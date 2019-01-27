@@ -130,9 +130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f69b28c94522b4c876b315103f8815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
   inHouseRange: 0
   atHome: 0
   isDead: 0
+  stateClips:
+  - {fileID: 8300000, guid: 590b58b9950cce5409153ac48b8abc56, type: 3}
+  - {fileID: 8300000, guid: 5032706c03e7bce43913133520dfcbe8, type: 3}
+  - {fileID: 8300000, guid: d992e1f73bdcd2d4d942d2555cfd706d, type: 3}
+  settleButton: {fileID: 0}
 --- !u!114 &2415450399424949507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoints: 0
   collection: 
+  source: {fileID: 924649416, guid: 892177c232e308b43828312aad838f8f, type: 3}
+  meter: {fileID: 0}
 --- !u!70 &1392847469
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
