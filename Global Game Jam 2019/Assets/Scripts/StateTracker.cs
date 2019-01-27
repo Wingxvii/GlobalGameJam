@@ -31,14 +31,14 @@ public class StateTracker : MonoBehaviour
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
 				player.GetComponent<Transform>().position = home.GetComponent<Transform>().position;
-				player.GetComponent<BoxCollider2D>().enabled = true;
+				player.GetComponent<CapsuleCollider2D>().enabled = true;
 				atHome = false;
 			}
 			else if(inHouseRange){
 				//get in house animation goes here ... @anims
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
-				player.GetComponent<BoxCollider2D>().enabled = false;
+				player.GetComponent<CapsuleCollider2D>().enabled = false;
 				atHome = true;
 			}
 		}

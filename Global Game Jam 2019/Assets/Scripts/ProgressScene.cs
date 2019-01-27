@@ -10,7 +10,7 @@ public class ProgressScene : MonoBehaviour
 	//Use this to determine which scene is to be played next
 	public void NextScene(int scene)
 	{
-		presentScene.SwapScene(scene);
+		GameObject.FindGameObjectWithTag("SceneManagement").GetComponent<PresentScene>().SwapScene(scene);
 	}
 
 	public void ExitGame()
