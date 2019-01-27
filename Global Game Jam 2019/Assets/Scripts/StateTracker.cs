@@ -16,10 +16,13 @@ public class StateTracker : MonoBehaviour
 	public List<AudioClip> stateClips;
 
 	public Button settleButton;
+	float timer = 0;
+
+	//public PresentScene presentScene;
 
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
 		home = GameObject.FindGameObjectWithTag("House");
@@ -28,6 +31,7 @@ public class StateTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		timer += Time.deltaTime;
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			Debug.Log("Pressed\n");
 			//enters the house/leaves the house
@@ -41,8 +45,10 @@ public class StateTracker : MonoBehaviour
 				source.clip = stateClips[1];
 				source.Play();
 
-				//Disable button to settle down the house
-				settleButton.enabled = false;
+				//Hide button to settle down the house
+				//settleButton.transform.localPosition = new Vector3(0f, -50f, 0f);
+				settleButton.transform.Translate(0f, -130f, 0f);
+				//settleButton.transform.position = new Vector3(0f, -50f, 0f);
 
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
@@ -61,8 +67,10 @@ public class StateTracker : MonoBehaviour
 				source.clip = stateClips[0];
 				source.Play();
 
-				//Enable the button to settle down the house
-				settleButton.enabled = true;
+				//Show the button to settle down the house
+				//settleButton.transform.localPosition = new Vector3(0f, 60f, 0f);
+				settleButton.transform.Translate(0f, 130f, 0f);
+				//settleButton.transform.position = new Vector3(0.0f, 60f, 0f);
 
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
@@ -71,7 +79,10 @@ public class StateTracker : MonoBehaviour
 				atHome = true;
 			}
 		}
-    }
+
+		if (timer >= 1 && isDead == true)
+			GameObject.FindGameObjectWithTag("SceneManagement").GetComponent<PresentScene>().SwapScene(4);
+	}
 
 	public void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -91,6 +102,7 @@ public class StateTracker : MonoBehaviour
 			source.clip = stateClips[2];
 			source.Play();
 			isDead = true;
+			timer = 0;
 		}
 	}
 	public void OnTriggerExit2D(Collider2D collision)
