@@ -31,25 +31,35 @@ public class StateTracker : MonoBehaviour
 			//enters the house/leaves the house
 			if (atHome) {
 				//leave house animation goes here ... @anim
-				//Play open door sound
-				source.clip = doorClips[0];
+				
+				//Turn off music filter
+				GameObject.FindGameObjectWithTag("BKGMusic").GetComponent<AudioLowPassFilter>().enabled = false;
+				
+				//Play leave house sound
+				source.clip = doorClips[1];
 				source.Play();
 
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
 				player.GetComponent<Transform>().position = home.GetComponent<Transform>().position;
 				player.GetComponent<CapsuleCollider2D>().enabled = true;
+
 				atHome = false;
 			}
 			else if(inHouseRange){
 				//get in house animation goes here ... @anims
-				//Play close door sound
-				source.clip = doorClips[1];
+				
+				//Filter music when in house
+				GameObject.FindGameObjectWithTag("BKGMusic").GetComponent<AudioLowPassFilter>().enabled = true;
+				
+				//Play enter house sound
+				source.clip = doorClips[0];
 				source.Play();
 
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
 				player.GetComponent<CapsuleCollider2D>().enabled = false;
+
 				atHome = true;
 			}
 		}
@@ -69,6 +79,9 @@ public class StateTracker : MonoBehaviour
 		if (collision.gameObject.tag == "Monster" && !atHome)
 		{
 			Debug.Log("Dead");
+			//Play leave house sound
+			source.clip = doorClips[2];
+			source.Play();
 			isDead = true;
 		}
 	}

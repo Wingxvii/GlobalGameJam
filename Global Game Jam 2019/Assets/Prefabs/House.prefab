@@ -130,11 +130,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1292075896441176959}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf9012a72c6f6064db2b02e15b08aac4, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04015149, y: -0.14499164}
+  m_Offset: {x: 0.040151477, y: -0.16486055}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57171655, y: 0.7100167}
+  m_Size: {x: 0.57171655, y: 0.74975455}
   m_EdgeRadius: 0
 --- !u!61 &1435834340
 BoxCollider2D:
@@ -156,11 +156,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1292075896441176959}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf9012a72c6f6064db2b02e15b08aac4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0030648112, y: 0.000000074505806}
+  m_Offset: {x: 0.0030648112, y: 0.1482526}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -171,7 +171,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7977283, y: 0.9816116}
+  m_Size: {x: 0.7977283, y: 0.6851065}
   m_EdgeRadius: 0
 --- !u!70 &1435834341
 CapsuleCollider2D:
@@ -182,12 +182,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1292075896441176959}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf9012a72c6f6064db2b02e15b08aac4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4, y: 0}
-  m_Size: {x: 0.1966181, y: 0.99999994}
+  m_Offset: {x: -0.4, y: 0.1497809}
+  m_Size: {x: 0.1966181, y: 0.70043814}
   m_Direction: 0
 --- !u!70 &1435834342
 CapsuleCollider2D:
@@ -198,10 +198,10 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1292075896441176959}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf9012a72c6f6064db2b02e15b08aac4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.4, y: 0}
-  m_Size: {x: 0.1966181, y: 0.99999994}
+  m_Offset: {x: 0.4, y: 0.15283759}
+  m_Size: {x: 0.1966181, y: 0.69432473}
   m_Direction: 0

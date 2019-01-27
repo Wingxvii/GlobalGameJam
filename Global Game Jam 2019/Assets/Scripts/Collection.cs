@@ -8,6 +8,7 @@ public class Collection : MonoBehaviour
 {
 	public int totalPoints;
 	public List<int> collection;
+	public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class Collection : MonoBehaviour
 			collection.Add(data.index);	
 			Debug.Log("Happening/n");
 			//collection anim goes here ... @anim
+			
+			//Collection sound
+			source.Play();
+
 			data.DeleteSelf();
 		}
 	}
