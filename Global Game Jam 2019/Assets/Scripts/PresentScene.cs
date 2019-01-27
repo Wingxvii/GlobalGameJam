@@ -12,7 +12,7 @@ public class PresentScene : MonoBehaviour
 	private void Awake()
 	{
 		//Locks screen resolution
-		Screen.SetResolution(1080, 1920, true);
+		Screen.SetResolution(1920, 1080, true);
 
 		if (!startGame)
 		{
