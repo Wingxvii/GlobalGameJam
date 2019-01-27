@@ -24,6 +24,8 @@ public class Chase : MonoBehaviour
 	public AudioSource source;
 	public List<AudioClip> soundList;
 
+	public GameObject sound;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -35,7 +37,7 @@ public class Chase : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		monster = this.GetComponent<Transform>();
 		playerState = GameObject.FindGameObjectWithTag("Player").GetComponent<StateTracker>();
-
+		source = sound.GetComponent<AudioSource>();
 	}
 
 	int GetRandomSound(int soundType)
