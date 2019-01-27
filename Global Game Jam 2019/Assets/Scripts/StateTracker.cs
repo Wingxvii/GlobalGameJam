@@ -7,9 +7,12 @@ public class StateTracker : MonoBehaviour
 
 	private GameObject player;
 	private GameObject home;
+	public AudioSource source;
 	public bool inHouseRange = false;
 	public bool atHome = false;
 	public bool isDead = false;
+
+	public List<AudioClip> doorClips;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,10 @@ public class StateTracker : MonoBehaviour
 			//enters the house/leaves the house
 			if (atHome) {
 				//leave house animation goes here ... @anim
+				//Play open door sound
+				source.clip = doorClips[0];
+				source.Play();
+
 				Debug.Log("Out\n");
 				player.GetComponent<SpriteRenderer>().enabled = true;
 				player.GetComponent<Transform>().position = home.GetComponent<Transform>().position;
@@ -36,6 +43,10 @@ public class StateTracker : MonoBehaviour
 			}
 			else if(inHouseRange){
 				//get in house animation goes here ... @anims
+				//Play close door sound
+				source.clip = doorClips[1];
+				source.Play();
+
 				Debug.Log("In\n");
 				player.GetComponent<SpriteRenderer>().enabled = false;
 				player.GetComponent<CapsuleCollider2D>().enabled = false;
