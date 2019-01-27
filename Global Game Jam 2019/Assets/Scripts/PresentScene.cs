@@ -35,7 +35,6 @@ public class PresentScene : MonoBehaviour
 	{
 		loadedScene = scene;
 		SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
-		SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(scene));
 	}
 
 	//Use this to unload the scene
