@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoints: 0
   collection: 
-  source: {fileID: 0}
+  source: {fileID: 924649416, guid: 892177c232e308b43828312aad838f8f, type: 3}
   meter: {fileID: 0}
 --- !u!70 &1392847469
 CapsuleCollider2D:

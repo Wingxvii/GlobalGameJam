@@ -32,6 +32,7 @@ public class StateTracker : MonoBehaviour
     void Update()
     {
 		timer += Time.deltaTime;
+
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			Debug.Log("Pressed\n");
 			//enters the house/leaves the house
@@ -51,9 +52,9 @@ public class StateTracker : MonoBehaviour
 				//settleButton.transform.position = new Vector3(0f, -50f, 0f);
 
 				Debug.Log("Out\n");
-				player.GetComponent<SpriteRenderer>().enabled = true;
-				player.GetComponent<Transform>().position = home.GetComponent<Transform>().position;
-				player.GetComponent<CapsuleCollider2D>().enabled = true;
+				player.GetComponentInChildren<SpriteRenderer>().enabled = true;
+				player.GetComponentInChildren<Transform>().position = home.GetComponent<Transform>().position;
+				player.GetComponentInChildren<CapsuleCollider2D>().enabled = true;
 
 				atHome = false;
 			}
@@ -73,15 +74,12 @@ public class StateTracker : MonoBehaviour
 				//settleButton.transform.position = new Vector3(0.0f, 60f, 0f);
 
 				Debug.Log("In\n");
-				player.GetComponent<SpriteRenderer>().enabled = false;
-				player.GetComponent<CapsuleCollider2D>().enabled = false;
+				player.GetComponentInChildren<SpriteRenderer>().enabled = false;
+				player.GetComponentInChildren<CapsuleCollider2D>().enabled = false;
 
 				atHome = true;
 			}
 		}
-
-		if (timer >= 1 && isDead == true)
-			GameObject.FindGameObjectWithTag("SceneManagement").GetComponent<PresentScene>().SwapScene(4);
 	}
 
 	public void OnTriggerEnter2D(Collider2D collision)
@@ -103,6 +101,7 @@ public class StateTracker : MonoBehaviour
 			source.Play();
 			isDead = true;
 			timer = 0;
+			GameObject.FindGameObjectWithTag("SceneManagement").GetComponent<PresentScene>().SwapScene(4);
 		}
 	}
 	public void OnTriggerExit2D(Collider2D collision)
