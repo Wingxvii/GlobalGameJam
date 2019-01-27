@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 
 
 public class Collection : MonoBehaviour
 {
-	public int totalPoints;
+	public float totalPoints;
 	public List<int> collection;
 	public AudioSource source;
+	public Image meter;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class Collection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+		meter.fillAmount = totalPoints / 25;
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +30,8 @@ public class Collection : MonoBehaviour
 
 			RewardData data = collision.gameObject.GetComponent<RewardData>();
 			totalPoints += data.points;
-			collection.Add(data.index);	
+			collection.Add(data.index);
+			Debug.Log(totalPoints);
 			Debug.Log("Happening/n");
 			//collection anim goes here ... @anim
 			
