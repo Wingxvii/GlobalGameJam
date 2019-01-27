@@ -19,7 +19,7 @@ public class Tether : MonoBehaviour
     void Start()
     {
 		target = GameObject.FindGameObjectWithTag("Player");
-		self = GameObject.FindGameObjectWithTag("House");
+		self = this.gameObject;
 		localRigid = self.GetComponent<Rigidbody2D>();
     }
 
