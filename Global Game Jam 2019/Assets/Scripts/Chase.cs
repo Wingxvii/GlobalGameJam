@@ -24,6 +24,7 @@ public class Chase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		stopTimeActual = (int)Random.Range(0, stopTime);
 		dir = new Vector2(Random.value, Random.value);
 		dir.Normalize();
 		monsterRigid = this.GetComponent<Rigidbody2D>();
