@@ -22,10 +22,8 @@ public class Chase : MonoBehaviour
 	private Rigidbody2D monsterRigid;
 
 	public AudioSource source;
-	public AudioSource sourceDog;
 	public List<AudioClip> soundList;
-	bool isSoundPlaying = false;
-	bool monsOnScreen = false;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -46,8 +44,6 @@ public class Chase : MonoBehaviour
 
 		if (soundType == 1)
 			soundLoc = Random.Range(0, 3);
-		if (soundType == 2)
-			soundLoc = Random.Range(4, 10);
 
 		return soundLoc;
 	}
@@ -55,24 +51,10 @@ public class Chase : MonoBehaviour
 	void PlaySound(AudioClip audioClip)
 	{
 		source.Play();
-
-		isSoundPlaying = true;
-		sourceDog.Play();
 	}
 
 	public void Update()
 	{
-		if (!sourceDog.isPlaying)
-		{
-			isSoundPlaying = false;
-		}
-		//Play a dog bark
-		if (isSoundPlaying == false && monsOnScreen == true)
-		{
-			sourceDog.clip = soundList[GetRandomSound(2)];
-			PlaySound(sourceDog.clip);
-		}
-
 		if ((player.position - monster.position).magnitude < lookRange && !playerState.atHome) {
 			dir = (player.position - monster.position).normalized;
 			stopTimeActual = 10;
@@ -85,7 +67,6 @@ public class Chase : MonoBehaviour
 		//Play a monster sound
 		source.clip = soundList[GetRandomSound(1)];
 		PlaySound(source.clip);
-		//monsOnScreen = true;
 	}
 
 	private void FixedUpdate()

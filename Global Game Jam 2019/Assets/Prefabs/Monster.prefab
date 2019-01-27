@@ -98,6 +98,11 @@ MonoBehaviour:
   speed: 2
   stopTime: 50
   stopRatio: 2
+  source: {fileID: 0}
+  soundList:
+  - {fileID: 8300000, guid: a01020378ace46d438a6d880cff9350e, type: 3}
+  - {fileID: 8300000, guid: 9ce0fd6057fb86242a8a11667d678a6a, type: 3}
+  - {fileID: 8300000, guid: 799ba58110045bc4c9f0734d482aca45, type: 3}
 --- !u!50 &1681805320611007529
 Rigidbody2D:
   serializedVersion: 4
