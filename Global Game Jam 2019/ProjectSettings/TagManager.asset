@@ -10,6 +10,7 @@ TagManager:
   - SceneManagement
   - Monster
   - BKGMusic
+  - Spawner
   layers:
   - Default
   - TransparentFX
