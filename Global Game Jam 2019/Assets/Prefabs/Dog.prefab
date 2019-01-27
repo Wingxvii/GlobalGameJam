@@ -90,7 +90,7 @@ Animator:
   m_GameObject: {fileID: 764964783}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f05973789c1850f47b74067b801452d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3039958456780593467}
   - component: {fileID: 1363188925}
   - component: {fileID: 5327084383780124597}
+  - component: {fileID: 2060014123}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -206,3 +207,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ed76c91e1dd8f44590342356c7aa1c6, type: 3}
   - {fileID: 8300000, guid: e300b8a115c4cf946971404ab6595454, type: 3}
   - {fileID: 8300000, guid: 5464534e3cf43ae40a34b847fe703f38, type: 3}
+--- !u!114 &2060014123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039958456780593465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee397deaf48a434f90a86c689abbc53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  objectToFlip: {fileID: 0}
+  velY: 0
+  velX: 0
