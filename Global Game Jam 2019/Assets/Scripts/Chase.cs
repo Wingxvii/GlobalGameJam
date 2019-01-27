@@ -37,7 +37,7 @@ public class Chase : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		monster = this.GetComponent<Transform>();
 		playerState = GameObject.FindGameObjectWithTag("Player").GetComponent<StateTracker>();
-		source = sound.GetComponent<AudioSource>();
+		source = GameObject.FindGameObjectWithTag("mon").GetComponent<AudioSource>();
 	}
 
 	int GetRandomSound(int soundType)
